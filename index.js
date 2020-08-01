@@ -8,6 +8,7 @@ app.get("/", (req, res) => {
   res.status(200).send("Working");
 });
 
+// server listen as using socket.io (not app listen)
 server.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
