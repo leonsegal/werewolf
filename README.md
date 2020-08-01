@@ -1,3 +1,5 @@
+![werewolf](werewolf-256.png)
+
 A chat app so people can play werewolf online.
 
 ##### Feature wishlist:
