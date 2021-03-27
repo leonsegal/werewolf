@@ -1,28 +1,13 @@
-const path = require("path");
-const express = require("express");
-
-const app = express();
-
-const server = require("http").createServer(app);
+const app = require("express")();
+const server = require("http").Server(app);
 const io = require("socket.io")(server);
+const port = 3000;
 
-const port = process.env.PORT || 3000;
+server.listen(port, () => console.log(`listening on port: ${port}`));
 
-app.use(express.static(path.join(__dirname + "/public")));
+app.get("/", (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
-io.on("connection", () => {
-  console.log("Some client connected");
-
-  io.on("chat", (message) => {
-    console.log("From client: ", message);
-  });
-});
-
-app.get("/", (req, res) => {
-  res.status(200).send("Working");
-});
-
-// server listen as using socket.io (not app listen)
-server.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
+io.on("connection", (socket) => {
+  socket.on("message", (msg) => io.emit("message", msg));
+  socket.on("disconnect", () => io.emit("message", "user disconnected"));
 });
