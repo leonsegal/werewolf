@@ -1,7 +1,12 @@
-const app = require("express")();
+const express = require("express");
+const app = express();
+const path = require("path");
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const port = 3000;
+
+// make public dir accessible from outside for web page
+app.use(express.static(path.join(__dirname + "/public")));
 
 server.listen(port, () => console.log(`listening on port: ${port}`));
 

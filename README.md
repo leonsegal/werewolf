@@ -1,4 +1,4 @@
-![werewolf](public/werewolf-256.png)
+![werewolf](public/werewolf.png)
 
 A chat app so people can play werewolf online.
 
