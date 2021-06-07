@@ -1,17 +1,9 @@
 {
   "name": "ww",
   "version": "1.0.0",
-  "dependencies": {
-    "express": "^4.17.1",
-    "socket.io": "^4.0.0"
-  },
-  "scripts": {
-    "start": "nodemon ./index.js --exec babel-node -e js"
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "prettier": "^2.2.1"
+    "babel-preset-stage-0": "^6.24.1"
   }
 }
